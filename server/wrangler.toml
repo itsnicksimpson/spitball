@@ -1,0 +1,9 @@
+name = "spitball-club"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# npx wrangler d1 create spitball-club   → paste the id below
+[[d1_databases]]
+binding = "DB"
+database_name = "spitball-club"
+database_id = "REPLACE_ME"

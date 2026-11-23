@@ -1,0 +1,22 @@
+{
+  "name": "Spitball",
+  "short_name": "Spitball",
+  "description": "Free, on-device voice dictation for Mac.",
+  "start_url": "/spitball/",
+  "scope": "/spitball/",
+  "display": "standalone",
+  "background_color": "#fffbf3",
+  "theme_color": "#66b3f5",
+  "icons": [
+    {
+      "src": "img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

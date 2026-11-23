@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Spitball</title>
+    <link>https://itsnicksimpson.github.io/spitball/appcast.xml</link>
+    <description>Spitball updates</description>
+<!-- items -->
+    <item>
+      <title>Spitball 2.3.5</title>
+      <pubDate>Mon, 23 Nov 2026 21:13:17 GMT</pubDate>
+      <sparkle:version>16</sparkle:version>
+      <sparkle:shortVersionString>2.3.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Dictation keeps working during FaceTime, phone and Continuity calls: if echo cancellation stops delivering audio, Spitball switches to the plain mic. Plus a bolder app icon that matches the rest of your Dock.</p>]]></description>
+      <enclosure url="https://github.com/itsnicksimpson/spitball/releases/download/v2.3.5/Spitball.zip" sparkle:edSignature="Q4NVo9mxXvcPW088YYtR+FyAbzZ7NtDPT+lyTsXFFbzv155SHDRwdvtuKkuDirnjbghCcJrPon85Vfgc7RIGBQ==" length="17101785" type="application/octet-stream"/>
+    </item>
+<!-- /items -->
+  </channel>
+</rss>
