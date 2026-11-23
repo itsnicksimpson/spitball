@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ATSApplicationFontsPath</key>
+	<string>Fonts</string>
+	<key>CFBundleDisplayName</key>
+	<string>Spitball</string>
+	<key>CFBundleExecutable</key>
+	<string>Spitball</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.nicksimpson.spitball</string>
+	<key>CFBundleName</key>
+	<string>Spitball</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.3.5</string>
+	<key>CFBundleVersion</key>
+	<string>16</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>26.0</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Spitball records what your Mac plays during a call to write meeting notes, on your Mac. Nothing is uploaded.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Spitball listens only while you dictate or record a note, and turns your speech into text on your Mac.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Spitball transcribes your speech on this Mac. Nothing is sent to the cloud.</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://itsnicksimpson.github.io/spitball/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>2Csi1Dl3wMmH3mAiQCd7BdYJ2sQQL02ukP9BxAfOHhc=</string>
+	<key>SUScheduledCheckInterval</key>
+	<integer>86400</integer>
+	<key>SpitballClubAPI</key>
+	<string></string>
+</dict>
+</plist>

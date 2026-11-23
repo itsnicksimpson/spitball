@@ -1,0 +1,19 @@
+# Spitball
+
+> Spitball is a free, open-source (MIT) voice dictation app for macOS. Double-tap the Command key, speak, and your words are typed into any app about 100 ms after you stop talking. Speech recognition runs on-device with NVIDIA Parakeet (via FluidAudio and Core ML); optional rewriting uses Apple Intelligence's on-device model. No account, no subscription, audio never leaves the Mac.
+
+Key facts:
+- Price: free forever. License: MIT. Source: https://github.com/itsnicksimpson/spitball
+- Platform: Apple Silicon Macs on macOS 26 or later. Supports notched MacBooks and Dynamic Island MacBook Pro models.
+- How to use: double-tap ⌘ to start, tap ⌘ once to finish, Esc to cancel. Hold-to-talk keys are also available.
+- Features: Command Mode (select text, speak an edit), per-app writing styles (as spoken, polished, formal, casual, texting), personal dictionary, voice snippets, searchable history with the app you dictated into, echo and noise cancellation during calls, VoiceOver support.
+- Privacy: transcription and rewriting are on-device. An optional, opt-in leaderboard shares only word counts.
+- Alternatives it replaces: Wispr Flow (cloud, paid Pro), Monologue (subscription), Superwhisper (paid Pro/lifetime).
+
+## Pages
+- [Home](https://itsnicksimpson.github.io/spitball/): overview, live demo, install
+- [Spitball vs Wispr Flow](https://itsnicksimpson.github.io/spitball/alternatives/wispr-flow/)
+- [Spitball vs Monologue](https://itsnicksimpson.github.io/spitball/alternatives/monologue/)
+- [Spitball vs Superwhisper](https://itsnicksimpson.github.io/spitball/alternatives/superwhisper/)
+- [All alternatives](https://itsnicksimpson.github.io/spitball/alternatives/)
+- [README / docs](https://github.com/itsnicksimpson/spitball#readme)

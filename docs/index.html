@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en" data-theme="pacific">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spitball: Free Voice Dictation for Mac (Wispr Flow Alternative)</title>
+<meta name="description" content="Spitball is free, open-source voice dictation and meeting notes for Mac. Double-tap ⌘, talk, and your words appear in any app in about 0.1 seconds. Notes and meetings without a bot. Runs 100% on-device. A free alternative to Wispr Flow, Monologue and Superwhisper.">
+<link rel="canonical" href="https://itsnicksimpson.github.io/spitball/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#66b3f5">
+<meta name="spitball-api" content="">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spitball">
+<meta property="og:title" content="Spitball: Say it. Ship it.">
+<meta property="og:description" content="Free, open-source, on-device voice dictation for Mac. Double-tap ⌘ and talk. Lives in your notch.">
+<meta property="og:url" content="https://itsnicksimpson.github.io/spitball/">
+<meta property="og:image" content="https://itsnicksimpson.github.io/spitball/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Spitball: free voice dictation for Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spitball: Say it. Ship it.">
+<meta name="twitter:description" content="Free, open-source, on-device voice dictation for Mac. Double-tap ⌘ and talk.">
+<meta name="twitter:image" content="https://itsnicksimpson.github.io/spitball/img/og.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/Yellowtail-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=38">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://itsnicksimpson.github.io/spitball/#app",
+      "name": "Spitball",
+      "alternateName": "Spitball Dictation",
+      "description": "Free, open-source voice dictation for macOS. Double-tap the Command key, speak, and your words are typed into any app in about 100 ms. Transcription runs on-device with NVIDIA Parakeet; optional rewriting uses Apple Intelligence on-device.",
+      "applicationCategory": "ProductivityApplication",
+      "applicationSubCategory": "Speech to text / Dictation",
+      "operatingSystem": "macOS 26 or later (Apple Silicon)",
+      "url": "https://itsnicksimpson.github.io/spitball/",
+      "downloadUrl": "https://github.com/itsnicksimpson/spitball/releases/latest/download/Spitball.dmg",
+      "installUrl": "https://github.com/itsnicksimpson/spitball#install",
+      "codeRepository": "https://github.com/itsnicksimpson/spitball",
+      "license": "https://opensource.org/licenses/MIT",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "image": "https://itsnicksimpson.github.io/spitball/img/icon.png",
+      "screenshot": "https://itsnicksimpson.github.io/spitball/img/app-pacific.png",
+      "featureList": [
+        "Double-tap Command to dictate into any app",
+        "On-device speech recognition (NVIDIA Parakeet via Core ML)",
+        "Notch and Dynamic Island indicator",
+        "Command Mode: edit selected text by voice",
+        "Per-app writing styles",
+        "Personal dictionary and voice snippets",
+        "Dictation history with copy",
+        "Echo and noise cancellation during calls",
+        "VoiceOver, Reduce Motion and Increase Contrast support"
+      ],
+      "author": { "@type": "Person", "name": "Nick Simpson", "url": "https://github.com/itsnicksimpson" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://itsnicksimpson.github.io/spitball/#site",
+      "name": "Spitball",
+      "url": "https://itsnicksimpson.github.io/spitball/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is Spitball really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Spitball is MIT-licensed open source with no account, trial, subscription or paid tier. Speech recognition runs on your Mac's Neural Engine, so there is no server cost." } },
+        { "@type": "Question", "name": "Does Spitball send my voice to the cloud?", "acceptedAnswer": { "@type": "Answer", "text": "No. Transcription runs on-device with NVIDIA Parakeet, with Apple's on-device speech engine as a backup. Optional rewriting uses Apple Intelligence's on-device model. Audio and text never leave your Mac." } },
+        { "@type": "Question", "name": "What is the best free alternative to Wispr Flow on Mac?", "acceptedAnswer": { "@type": "Answer", "text": "Spitball is a free, open-source Wispr Flow alternative for Mac. Wispr Flow processes speech in the cloud and charges about $12–15 a month for Pro; Spitball runs entirely on-device and costs nothing." } },
+        { "@type": "Question", "name": "How fast is Spitball?", "acceptedAnswer": { "@type": "Answer", "text": "A spoken sentence is transcribed in roughly 100 milliseconds after you stop talking on Apple Silicon. The microphone starts on your first Command tap, so the first word is not clipped." } },
+        { "@type": "Question", "name": "Which Macs does Spitball support?", "acceptedAnswer": { "@type": "Answer", "text": "Apple Silicon Macs running macOS 26 or later, including notched MacBooks and Dynamic Island MacBook Pro models. Macs without a notch show a floating pill." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+<header class="desktop" id="top">
+  <div class="menubar">
+    <a class="tag" href="#top" aria-label="Spitball home"><img src="favicon.png" alt="" width="20" height="20"> SPITBALL</a>
+    <button class="tag" type="button" data-open="w-card">✦ GET YOUR ID CARD</button>
+    <div class="swatches" role="group" aria-label="Color theme">
+      <button class="swatch" data-t="pacific" aria-label="Pacific Breeze theme" aria-pressed="true"></button>
+      <button class="swatch" data-t="grape" aria-label="Grape Soda theme" aria-pressed="false"></button>
+      <button class="swatch" data-t="lagoon" aria-label="Lagoon theme" aria-pressed="false"></button>
+      <button class="swatch" data-t="mint" aria-label="Mint Julep theme" aria-pressed="false"></button>
+    </div>
+    <span class="tag date" id="date" aria-hidden="true">SUN 23 NOV 1997</span>
+  </div>
+
+  <div class="desk">
+    <div class="win" id="w-hello" role="region" aria-label="Welcome to Spitball">
+      <div class="bar"><span class="box" aria-hidden="true"></span><span class="stripes"></span><span class="t">Welcome</span><span class="stripes"></span></div>
+      <div class="scene">
+        <svg class="art" viewBox="0 0 520 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--top)"/><stop offset="1" style="stop-color:var(--bottom)"/></linearGradient>
+            <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.3" style="fill:var(--ink)" opacity=".13"/></pattern>
+            <mask id="sunmask"><rect width="520" height="330" fill="#fff"/><g fill="#000"><rect y="205" width="520" height="4"/><rect y="218" width="520" height="6"/><rect y="233" width="520" height="8"/><rect y="250" width="520" height="10"/></g></mask>
+          </defs>
+          <rect width="520" height="330" fill="url(#sky)"/>
+          <circle id="sun" cx="260" cy="262" r="118" style="fill:var(--accent)" mask="url(#sunmask)"/>
+          <rect y="262" width="520" height="68" style="fill:var(--sea)"/>
+          <g style="stroke:var(--ink)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5">
+            <path id="waves" d="M20 284 q 15 -8 30 0 t 30 0 M140 300 q 15 -8 30 0 t 30 0 M300 288 q 15 -8 30 0 t 30 0 M420 306 q 15 -8 30 0 t 30 0"/>
+          </g>
+          <g style="fill:var(--ink)">
+            <path d="M58 330 C 66 270 70 210 84 160 l 8 2 C 80 214 78 272 74 330 Z"/>
+            <path d="M88 162 c -30 -20 -62 -18 -80 -4 c 26 -4 50 0 76 10 Z M88 162 c -8 -34 -30 -52 -58 -54 c 22 12 38 30 50 56 Z M88 162 c 18 -32 44 -44 70 -40 c -26 6 -46 20 -62 44 Z M88 162 c 30 -10 58 -2 74 16 c -24 -10 -48 -12 -72 -8 Z M88 162 c 6 -30 26 -48 46 -54 c -16 14 -28 32 -38 56 Z"/>
+            <path d="M470 330 C 462 286 458 246 446 210 l -7 2 c 10 36 14 78 18 118 Z"/>
+            <path d="M442 212 c 26 -16 54 -14 70 0 c -22 -4 -44 -2 -66 6 Z M442 212 c 6 -28 26 -44 50 -46 c -20 10 -34 26 -44 48 Z M442 212 c -16 -28 -38 -38 -62 -34 c 22 4 40 16 54 36 Z M442 212 c -26 -8 -50 0 -64 14 c 20 -8 42 -10 62 -6 Z"/>
+          </g>
+          <rect width="520" height="330" fill="url(#dots)"/>
+          <g id="flyball" transform="translate(390 70)">
+            <g style="stroke:var(--ink)" stroke-width="5" stroke-linecap="round"><line x1="-70" y1="-8" x2="-30" y2="-8"/><line x1="-84" y1="6" x2="-30" y2="6"/><line x1="-64" y1="20" x2="-30" y2="20"/></g>
+            <path d="M0 -26 C 16 -28 28 -16 27 0 C 28 18 14 28 -2 27 C -18 28 -28 14 -26 -2 C -28 -18 -16 -26 0 -26 Z" fill="#fffbf3" style="stroke:var(--ink)" stroke-width="4"/>
+            <path d="M-14 -16 L 2 -6 L 18 -14 M 2 -6 L 0 12 L 16 18 M 0 12 L -18 8" fill="none" style="stroke:var(--ink)" stroke-width="2.5" opacity=".55" stroke-linejoin="round"/>
+          </g>
+        </svg>
+        <div class="logo script" aria-hidden="true">Spitball</div>
+        <div class="tm" aria-hidden="true">“Say it. Ship it.”</div>
+      </div>
+      <div class="hello-body">
+        <h1>Free voice dictation for Mac. <em>Double-tap ⌘ and talk.</em></h1>
+        <p>Your words land wherever your cursor is, cleaned up, about a tenth of a second after you stop talking. No account. No subscription. Your voice never leaves your Mac.</p>
+        <div class="row">
+          <a class="pill" href="#install" id="cta-main">Get it free</a>
+          <a class="btn" href="https://github.com/itsnicksimpson/spitball" rel="noopener"><svg class="gh-mark" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg> <span id="stars-inline">Star</span> on GitHub</a>
+        </div>
+        <div class="fine">macOS 26+ · Apple Silicon · MIT licensed · Wispr Flow &amp; Monologue alternative</div>
+      </div>
+    </div>
+
+    <div class="win" id="w-app" role="region" aria-label="Try Spitball in your browser">
+      <div class="bar"><span class="box" aria-hidden="true"></span><span class="stripes"></span><span class="t">Spitball.app · try it</span><span class="stripes"></span></div>
+      <div class="app-lcd">
+        <div class="mark halftone"><span class="script">Spitball</span></div>
+        <div class="screen">
+          <canvas class="wavecv" id="lcdwave" width="600" height="64" aria-hidden="true"></canvas>
+          <div class="stats"><div><span id="s-words">0</span><small>WORDS</small></div><div><span id="s-wpm">0</span><small>WPM</small></div><div><span id="s-takes">0</span><small>TAKES</small></div></div>
+        </div>
+      </div>
+      <div class="notch-stage halftone">
+        <div class="mb"><span>Notes  Edit  View</span><span>☀︎ 9:41</span></div>
+        <div class="island" id="island" aria-hidden="true"><div class="bars" id="barsL"></div><div class="dots"><i></i><i></i><i></i></div><div class="bars" id="barsR"></div></div>
+        <div class="field-wrap">
+          <div class="app-name">📝 Notes</div>
+          <div class="field" id="field"><span class="caretwave" id="caretwave"></span><span id="typed"></span><span class="interim" id="interim"></span><span class="caret"></span></div>
+        </div>
+      </div>
+      <div class="app-tabs" role="tablist" aria-label="Spitball app">
+        <button role="tab" aria-selected="true" aria-controls="p-history" id="t-history">History</button>
+        <button role="tab" aria-selected="false" aria-controls="p-styles" id="t-styles">Styles</button>
+        <button role="tab" aria-selected="false" aria-controls="p-words" id="t-words">Words</button>
+      </div>
+      <div class="app-panel" id="p-history" role="tabpanel" aria-labelledby="t-history"><div class="empty"><div class="script">Nothing yet</div><div class="mono" style="font-size:12px">Double-tap ⌘ (or hold the button) and say something.</div></div></div>
+      <div class="app-panel" id="p-styles" role="tabpanel" aria-labelledby="t-styles" hidden>
+        <div class="opts">
+          <label><input type="radio" name="style" value="spoken" checked> As spoken</label>
+          <label><input type="radio" name="style" value="formal"> Formal</label>
+          <label><input type="radio" name="style" value="casual"> Casual</label>
+          <label><input type="radio" name="style" value="texting"> texting</label>
+        </div>
+        <p class="mono" style="font-size:11px;padding:0 12px;opacity:.7">In the real app, styles are rewritten on-device by Apple Intelligence, per app. This demo fakes it.</p>
+      </div>
+      <div class="app-panel" id="p-words" role="tabpanel" aria-labelledby="t-words" hidden>
+        <form id="wordform"><label class="sr" for="wordin">Add a word</label><input type="text" id="wordin" placeholder="Add a word, e.g. TestFlight" autocomplete="off"><button class="btn ink" style="padding:6px 12px;font-size:12px;box-shadow:2px 2px 0 var(--ink)">Add</button></form>
+        <div class="chips" id="wordlist" style="justify-content:flex-start;padding:0 12px"></div>
+      </div>
+      <div class="app-controls">
+        <span class="kbd" id="kcmd" aria-hidden="true">⌘<small>command</small></span>
+        <button class="btn talk" id="talk" type="button">🎙 Hold to talk</button>
+        <span class="hint" id="hint">Double-tap ⌘ to start, tap ⌘ to finish. Or hold the button.</span>
+      </div>
+      <p class="sr" aria-live="polite" id="live"></p>
+    </div>
+
+    <div class="win" id="w-card" role="dialog" aria-modal="false" aria-labelledby="card-title">
+      <div class="bar"><button class="box" type="button" data-close="w-card" aria-label="Close ID card"></button><span class="stripes"></span><span class="t" id="card-title">Spitball ID</span><span class="stripes"></span></div>
+      <div class="card-body">
+        <div class="idcard" id="idcard">
+          <div class="emboss script" aria-hidden="true">Spitball</div>
+          <div class="ctop"><span>MEMBER</span><span id="c-no">NO. 00001</span></div>
+          <div class="cbot">
+            <div><div class="name" id="c-name">Your Name</div><div class="handle" id="c-handle">Since <span id="c-since">Nov 2026</span></div></div>
+            <div class="barcode" aria-hidden="true"></div>
+          </div>
+        </div>
+        <form id="cardform">
+          <label class="sr" for="cardname">Your name or @handle</label>
+          <input id="cardname" type="text" placeholder="Your name or @handle" maxlength="28" autocomplete="nickname">
+          <button class="btn ink" style="padding:8px 14px;font-size:12px">Print</button>
+        </form>
+        <div class="card-actions">
+          <button class="btn" type="button" id="c-x">Share on 𝕏</button>
+          <button class="btn" type="button" id="c-copy">Copy image</button>
+          <button class="btn" type="button" id="c-dl">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="dock" aria-label="Spitball desktop"><button type="button" data-open="w-app"><img src="img/icons/spitball.svg" alt="" width="40" height="40"><span>Try it</span></button><a href="#how"><img src="img/icons/readme.svg" alt="" width="40" height="40"><span>Read Me</span></a><button type="button" data-open="w-card"><img src="img/icons/idcard.svg" alt="" width="40" height="40"><span>ID Card</span></button><a href="#compare"><img src="img/icons/scale.svg" alt="" width="40" height="40"><span>Compare</span></a><a href="#install"><img src="img/icons/floppy.svg" alt="" width="40" height="40"><span>Install</span></a><a href="https://github.com/itsnicksimpson/spitball" rel="noopener"><img src="img/icons/star.svg" alt="" width="40" height="40"><span>GitHub</span></a></nav>
+</header>
+
+<main id="main">
+<div class="lcd" role="region" aria-label="Spitball by the numbers">
+  <div class="wrap">
+    <div class="cell"><b id="n-stars">—</b><span>GitHub stars</span></div>
+    <div class="cell"><b id="n-dl">—</b><span>downloads</span></div>
+    <div class="cell"><b id="n-words">0.1s</b><span id="n-words-l">stop talking → text</span></div>
+    <div class="cell"><b id="n-hours">$0</b><span id="n-hours-l">per month, forever</span></div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <span class="label">How it works</span>
+    <h2 class="reveal">Two taps. <em>One thought.</em></h2>
+    <p class="lede reveal">You talk about 150 words a minute and type about 40. Spitball closes the gap in every app on your Mac: Slack, Linear, Cursor, Mail, Notes, the terminal, anywhere you can type.</p>
+    <div class="steps">
+      <div class="step win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">01 · Tap tap</span><span class="stripes"></span></div>
+        <div class="body"><div class="art"><span class="kbd down">⌘<small>command</small></span><span class="kbd">⌘<small>command</small></span></div>
+        <h3>Double-tap ⌘</h3><p>A little black island grows out of your notch and starts listening. The mic warms up on your first tap, so your first word never gets clipped.</p></div></div>
+      <div class="step win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">02 · Spitball</span><span class="stripes"></span></div>
+        <div class="body"><div class="art"><div class="wave" aria-hidden="true"><i style="animation-delay:-.1s"></i><i style="animation-delay:-.5s"></i><i style="animation-delay:-.3s"></i><i style="animation-delay:-.8s"></i><i style="animation-delay:-.2s"></i><i style="animation-delay:-.6s"></i><i style="animation-delay:-.4s"></i><i style="animation-delay:-.9s"></i></div></div>
+        <h3>Just talk</h3><p>Ramble, restart, say “um.” Your voice ripples out of the notch and hovers over your text cursor, so you always know where the words will land.</p></div></div>
+      <div class="step win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">03 · Ship</span><span class="stripes"></span></div>
+        <div class="body"><div class="art"><span class="kbd">⌘<small>command</small></span><span class="mono" style="font-weight:700">→ done.</span></div>
+        <h3>Tap ⌘ once</h3><p>Clean text pastes right at your cursor, with punctuation, capitals and no “uh.” Your clipboard is put back exactly how you left it.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sand">
+  <div class="wrap quote">
+    <div>
+      <span class="label">Why Spitball</span>
+      <blockquote class="reveal">“The world's fastest keyboard is <em>the one in your face.</em>”</blockquote>
+      <p class="lede reveal">Spitball runs NVIDIA's Parakeet speech model on your Mac's Neural Engine. No cloud round-trip, no waiting, no monthly bill, and nothing to leak.</p>
+      <p style="margin-top:26px"><a class="pill" href="#install">Get Spitball free</a></p>
+    </div>
+    <div class="party reveal" aria-label="The after-party">
+      <figure class="pol p1"><video src="img/gifs/dancer.mp4" poster="img/gifs/dancer.jpg" autoplay muted loop playsinline aria-hidden="true"></video><figcaption>you, after cancelling a $15/mo dictation app</figcaption></figure>
+      <figure class="pol p2"><video src="img/gifs/skeletons.mp4" poster="img/gifs/skeletons.jpg" autoplay muted loop playsinline aria-hidden="true"></video><figcaption>the Neural Engine, 100 ms later</figcaption></figure>
+      <figure class="pol p3"><video src="img/gifs/disco.mp4" poster="img/gifs/disco.jpg" autoplay muted loop playsinline aria-hidden="true"></video><figcaption>ship-it friday</figcaption></figure>
+      <figure class="pol p4"><video src="img/gifs/waltz.mp4" poster="img/gifs/waltz.jpg" autoplay muted loop playsinline aria-hidden="true"></video><figcaption>you + your cofounder, both dictating</figcaption></figure>
+      <figure class="pol p5"><video src="img/gifs/horse.mp4" poster="img/gifs/horse.jpg" autoplay muted loop playsinline aria-hidden="true"></video><figcaption>your words, leaving the cloud</figcaption></figure>
+      <p class="credit">Clips: Eadweard Muybridge (1887), <i>The Skeleton Dance</i> (1929), disco ball (CC0). Public domain via Wikimedia Commons.</p>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <span class="label">Everything you'd pay for</span>
+    <h2 class="reveal">The founder <span class="script">starter pack.</span></h2>
+    <p class="lede reveal">Everything the paid dictation apps charge for, running locally on Apple Silicon. No cloud, no waitlist, no “talk to sales.”</p>
+    <div class="grid">
+      <article class="card win wide reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">Command Mode</span><span class="stripes"></span></div>
+        <div class="ill halftone"><div class="bubble">hey can u send me the deck by friday</div><div class="bubble say">“make this more formal”</div><div class="bubble">Could you please send me the deck by Friday?</div></div>
+        <div class="body"><h3>Select text. Say what to do.</h3><p>“Make it shorter.” “Translate to Spanish.” “Turn this into a tweet.” Rewritten in place by Apple Intelligence, on-device and free.</p></div></article>
+      <article class="card win wide reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">Notch &amp; Dynamic Island</span><span class="stripes"></span></div>
+        <div class="ill" style="height:auto;padding:0"><video src="img/demo.mp4" poster="img/demo.jpg" autoplay muted loop playsinline width="720" height="405" style="width:100%;height:auto;display:block" aria-label="Demo: double-tap Command, the island in the notch listens, tap Command, and the sentence appears in Notes"></video></div>
+        <div class="body"><h3>Lives in your notch.</h3><p>A tiny island grows out of the notch, or wraps the camera on the Dynamic Island MacBook Pro. No notch? It floats politely at the top of the screen.</p></div></article>
+      <article class="card win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">Styles</span><span class="stripes"></span></div>
+        <div class="ill halftone"><div class="chips"><span class="chip">Mail · Formal</span><span class="chip">Slack · Casual</span><span class="chip">iMessage · lowercase</span><span class="chip">Linear · As spoken</span></div></div>
+        <div class="body"><h3>Right tone, every app.</h3><p>Formal for investors, chill for Slack, all lowercase for the group chat. Set it once per app.</p></div></article>
+      <article class="card win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">Words</span><span class="stripes"></span></div>
+        <div class="ill halftone"><div class="chips"><span class="chip"><s>test flight</s>TestFlight</span><span class="chip"><s>graph QL</s>GraphQL</span><span class="chip"><s>super base</s>Supabase</span></div></div>
+        <div class="body"><h3>Knows your stack.</h3><p>Teach it a word once and it's spelled right forever. Names, products, your cofounder's last name.</p></div></article>
+      <article class="card win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">Snippets</span><span class="stripes"></span></div>
+        <div class="ill halftone"><div class="bubble say">“my calendar”</div><div class="bubble">cal.com/you/30min</div></div>
+        <div class="body"><h3>Shortcuts for your mouth.</h3><p>Say “my email” and your address appears. Same for a calendar link, a sign-off or your one-liner.</p></div></article>
+      <article class="card win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">Call-proof</span><span class="stripes"></span></div>
+        <div class="body" style="padding-top:26px"><h3>Dictate mid-call.</h3><p>On FaceTime, Zoom or Meet, Spitball turns on Apple's echo and noise cancellation, so other voices and your lo-fi playlist stay out of your text.</p></div></article>
+      <article class="card win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">History</span><span class="stripes"></span></div>
+        <div class="body" style="padding-top:26px"><h3>Everything you said.</h3><p>Every dictation, searchable, with the app you said it in and one-click copy. Plus your words per minute and the time you've saved.</p></div></article>
+      <article class="card win reveal"><div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">For everyone</span><span class="stripes"></span></div>
+        <div class="body" style="padding-top:26px"><h3>Built accessible.</h3><p>VoiceOver announces every state. Sounds turn on automatically with VoiceOver. Reduce Motion, Increase Contrast and relaxed tap timing are all supported.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sand" id="compare">
+  <div class="wrap">
+    <span class="label">Spitball vs. the big guys</span>
+    <h2 class="reveal">Stop renting <em>your own voice.</em></h2>
+    <p class="lede reveal">Looking for a Wispr Flow alternative, a free Monologue alternative, or something lighter than Superwhisper? Here's the honest comparison.</p>
+    <div class="table-wrap">
+      <table class="compare cards">
+        <caption class="sr">Spitball compared with Wispr Flow, Monologue and Superwhisper</caption>
+        <thead><tr><th scope="col"><span class="sr">Feature</span></th><th scope="col">Spitball</th><th scope="col">Wispr Flow</th><th scope="col">Monologue</th><th scope="col">Superwhisper</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Price</th><td class="us" data-label="Spitball">Free, forever</td><td data-label="Wispr Flow">Free tier; Pro ~$12–15/mo</td><td data-label="Monologue">Free trial; Pro $15/mo or $144/yr</td><td data-label="Superwhisper">Free tier; Pro $8.49/mo or $249.99 lifetime</td></tr>
+          <tr><th scope="row">Open source</th><td class="us" data-label="Spitball">Yes (MIT)</td><td data-label="Wispr Flow">No</td><td data-label="Monologue">No</td><td data-label="Superwhisper">No</td></tr>
+          <tr><th scope="row">Where speech is processed</th><td class="us" data-label="Spitball">On your Mac</td><td data-label="Wispr Flow">Cloud</td><td data-label="Monologue">Cloud, with an offline model on Mac</td><td data-label="Superwhisper">Local models, optional cloud</td></tr>
+          <tr><th scope="row">Account required</th><td class="us" data-label="Spitball">No</td><td data-label="Wispr Flow">Yes</td><td data-label="Monologue">Yes</td><td data-label="Superwhisper">For Pro</td></tr>
+          <tr><th scope="row">Edit text by voice</th><td class="us" data-label="Spitball">Yes, Command Mode</td><td data-label="Wispr Flow">Yes, Command Mode</td><td data-label="Monologue">Yes</td><td data-label="Superwhisper">Yes, custom modes</td></tr>
+          <tr><th scope="row">Per-app styles</th><td class="us" data-label="Spitball">Yes</td><td data-label="Wispr Flow">Yes</td><td data-label="Monologue">Yes, modes</td><td data-label="Superwhisper">Yes, modes</td></tr>
+          <tr><th scope="row">Voice notes + meeting notes, no bot</th><td class="us" data-label="Spitball">Yes, summarized on your Mac</td><td data-label="Wispr Flow">No</td><td data-label="Monologue">Yes</td><td data-label="Superwhisper">—</td></tr>
+          <tr><th scope="row">Notes for your AI agents</th><td class="us" data-label="Spitball">Local MCP server + CLI</td><td data-label="Wispr Flow">No</td><td data-label="Monologue">MCP, API, CLI (account)</td><td data-label="Superwhisper">—</td></tr>
+          <tr><th scope="row">Platforms</th><td class="us" data-label="Spitball">Mac</td><td data-label="Wispr Flow">Mac, Windows, iOS</td><td data-label="Monologue">Mac, iOS</td><td data-label="Superwhisper">Mac, Windows, iOS</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Competitor details from their public pages and reviews as of November 2026. Prices change, so check their sites. They do some things Spitball doesn't, like Windows and iPhone apps.</p>
+    <div class="alts"><a class="btn" href="alternatives/wispr-flow/">Spitball vs Wispr Flow →</a><a class="btn" href="alternatives/monologue/">Spitball vs Monologue →</a><a class="btn" href="alternatives/superwhisper/">Spitball vs Superwhisper →</a></div>
+  </div>
+</section>
+
+<section id="leaderboard" hidden>
+  <div class="wrap">
+    <span class="label">Spitball Club</span>
+    <h2 class="reveal">Who's talking <em>the most?</em></h2>
+    <p class="lede reveal">Members who opted in to the leaderboard in Settings. Only word counts are shared, never audio and never text.</p>
+    <div class="table-wrap"><table class="compare" id="lb"><caption class="sr">Leaderboard</caption><thead><tr><th scope="col">Rank</th><th scope="col">Member</th><th scope="col">Words</th><th scope="col">Hours talked</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <span class="label">Install</span>
+    <h2 class="reveal">One line. <span class="script">Done.</span></h2>
+    <p class="lede reveal">Download the app, or build it from source in one line. A welcome screen walks you through three practice phrases, prints your Spitball ID card, and you're in.</p>
+    <p style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap"><a class="pill" id="dl" href="https://github.com/itsnicksimpson/spitball/releases/latest/download/Spitball.dmg" rel="noopener">⬇ Download for Mac</a><button class="btn" type="button" data-open="w-card">✦ Print my ID card</button></p>
+    <div class="term win">
+      <div class="bar"><span class="box"></span><span class="stripes"></span><span class="t">Terminal · or build it yourself</span><span class="stripes"></span></div>
+      <div class="body"><button class="btn copy" id="copy" type="button">Copy</button><code id="cmd">git clone https://github.com/itsnicksimpson/spitball.git &amp;&amp; cd spitball &amp;&amp; ./install.sh</code><br><span class="dim"># ✓ Spitball is running. Double-tap ⌘ to talk.</span></div>
+    </div>
+    <div class="reqs"><span class="chip">macOS 26 or later</span><span class="chip">Apple Silicon</span><span class="chip">~600 MB speech model, downloaded once</span><span class="chip">First open: right-click → Open</span></div>
+  </div>
+</section>
+
+<section class="sand" id="faq">
+  <div class="wrap">
+    <span class="label">FAQ</span>
+    <h2 class="reveal">Questions, <em>answered.</em></h2>
+    <div class="faq">
+      <details><summary>Is Spitball really free?</summary><div><p>Yes. MIT-licensed open source with no account, no trial and no paid tier. Speech recognition runs on your Mac's Neural Engine, so there's no server bill for anyone to pass on to you.</p></div></details>
+      <details><summary>Does Spitball send my voice to the cloud?</summary><div><p>No. Transcription runs on-device with NVIDIA Parakeet (Apple's built-in speech engine is the backup), and optional rewriting uses Apple Intelligence's on-device model. Your history is a file in your Library folder. The leaderboard is opt-in and only ever shares word counts.</p></div></details>
+      <details><summary>What's the best free alternative to Wispr Flow?</summary><div><p>Spitball. It does the same core job (talk anywhere, get clean text) with Command Mode, styles, a dictionary and snippets, but it runs entirely on your Mac and costs nothing. Read the <a href="alternatives/wispr-flow/">full Spitball vs Wispr Flow comparison</a>.</p></div></details>
+      <details><summary>How fast is it?</summary><div><p>About 100 milliseconds from when you stop talking to text on screen on Apple Silicon. The mic starts on your first ⌘ tap, so there's no warm-up lag either.</p></div></details>
+      <details><summary>Does it work in Cursor, Slack, the terminal…?</summary><div><p>If you can type in it, Spitball can type in it. It pastes at your cursor like you would, then restores your clipboard.</p></div></details>
+      <details><summary>Does it support the Dynamic Island MacBook Pro?</summary><div><p>Yes. Spitball draws its own island around the camera cutout on notched and Dynamic Island MacBooks, and shows a floating pill on Macs without a notch.</p></div></details>
+      <details><summary>Why “Spitball”?</summary><div><p>Because that's what you're doing: throwing ideas out loud and seeing what sticks. Now they stick as text.</p></div></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="huge script" aria-hidden="true">Spitball</span>
+    <p class="serif" style="font-size:28px;margin:0"><em>Say it. Ship it.</em></p>
+    <div class="badges"><span class="chip">Free forever</span><span class="chip">Open source · MIT</span><span class="chip">100% on-device</span><span class="chip">Made on a Mac</span></div>
+    <nav aria-label="Footer"><a href="https://github.com/itsnicksimpson/spitball">GitHub</a><a href="alternatives/">Alternatives</a><a href="alternatives/wispr-flow/">vs Wispr Flow</a><a href="alternatives/monologue/">vs Monologue</a><a href="alternatives/superwhisper/">vs Superwhisper</a><a href="https://github.com/itsnicksimpson/spitball/issues">Report a bug</a></nav>
+    <p class="small">Spitball is an independent open-source project. Speech by NVIDIA Parakeet via FluidAudio. Not affiliated with Apple, NVIDIA, Wispr, Every or Superwhisper.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js" defer></script>
+<script src="assets/site.js?v=38" defer></script>
+</body>
+</html>
